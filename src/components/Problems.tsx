@@ -41,25 +41,29 @@ const risks = [
   },
 ];
 
+import { MotionSection } from "../lib/motion";
+import { motion } from "framer-motion";
+import { fadeUp } from "../lib/motion";
+
 const Problems = () => {
   return (
-    <section id="risks" className="py-24 sm:py-28 bg-white">
+    <MotionSection id="risks" className="py-24 sm:py-28 bg-white">
       <div className="max-w-4xl mx-auto px-6">
-        <span className="inline-block rounded-full bg-teal-100 px-4 py-1.5 text-sm font-semibold text-teal-700">
+        <motion.span variants={fadeUp} className="inline-block rounded-full bg-teal-100 px-4 py-1.5 text-sm font-semibold text-teal-700">
           What creators face
-        </span>
-        <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-900 tracking-tight">
+        </motion.span>
+        <motion.h2 variants={fadeUp} className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-900 tracking-tight">
           The risks we help you avoid
-        </h2>
-        <p className="mt-5 text-xl text-navy-600 leading-relaxed max-w-2xl">
+        </motion.h2>
+        <motion.p variants={fadeUp} className="mt-5 text-xl text-navy-600 leading-relaxed max-w-2xl">
           These don’t feel like “attacks”—they feel like normal emails and links. Here’s what we catch so you don’t have to.
-        </p>
+        </motion.p>
 
-        <ul className="mt-14 space-y-6" role="list">
+        <motion.ul className="mt-14 space-y-6" role="list" variants={{}}>
           {risks.map((risk) => (
-            <li key={risk.title}>
-              <article className="group flex gap-5 p-6 sm:p-8 bg-navy-50/60 rounded-2xl border-2 border-navy-200/60 shadow-sm transition-all hover:border-teal-300/80 hover:shadow-md">
-                <span className="flex-shrink-0 w-12 h-12 rounded-xl bg-teal-100 flex items-center justify-center group-hover:bg-teal-200/80 transition-colors">
+            <motion.li key={risk.title} variants={fadeUp}>
+              <article className="group flex gap-5 p-6 sm:p-8 bg-navy-50/60 rounded-2xl border-2 border-navy-200/60 shadow-sm transition-all duration-300 hover:border-teal-300/80 hover:shadow-md hover:-translate-y-0.5 hover:scale-[1.01]">
+                <span className="flex-shrink-0 w-12 h-12 rounded-xl bg-teal-100 flex items-center justify-center group-hover:bg-teal-200/80 group-hover:scale-110 transition-all duration-300">
                   {risk.icon}
                 </span>
                 <div>
@@ -71,11 +75,11 @@ const Problems = () => {
                   </p>
                 </div>
               </article>
-            </li>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </div>
-    </section>
+    </MotionSection>
   );
 };
 

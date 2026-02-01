@@ -1,3 +1,7 @@
+import { MotionSection } from "../lib/motion";
+import { motion } from "framer-motion";
+import { fadeUp } from "../lib/motion";
+
 const steps = [
   {
     title: "Monitor",
@@ -15,23 +19,24 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="py-24 sm:py-28 bg-gradient-to-b from-navy-50/60 to-teal-50/40">
+    <MotionSection id="how-it-works" className="py-24 sm:py-28 bg-gradient-to-b from-navy-50/60 to-teal-50/40">
       <div className="max-w-5xl mx-auto px-6">
-        <span className="inline-block rounded-full bg-navy-100 px-4 py-1.5 text-sm font-semibold text-navy-700">
+        <motion.span variants={fadeUp} className="inline-block rounded-full bg-navy-100 px-4 py-1.5 text-sm font-semibold text-navy-700">
           Simple process
-        </span>
-        <h2 className="mt-4 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-navy-900 tracking-tight">
+        </motion.span>
+        <motion.h2 variants={fadeUp} className="mt-4 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-navy-900 tracking-tight">
           How it works
-        </h2>
-        <p className="mt-5 font-serif text-xl text-navy-600 max-w-xl">
+        </motion.h2>
+        <motion.p variants={fadeUp} className="mt-5 font-serif text-xl text-navy-600 max-w-xl">
           Three steps. No jargon. Built for creators who want clarity, not complexity.
-        </p>
+        </motion.p>
 
         <div className="mt-16 grid md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
-            <article
+            <motion.article
               key={step.title}
-              className="relative bg-white rounded-2xl border-2 border-navy-200/80 shadow-lg overflow-hidden font-serif"
+              variants={fadeUp}
+              className="relative bg-white rounded-2xl border-2 border-navy-200/80 shadow-lg overflow-hidden font-serif transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-teal-400 to-teal-600" aria-hidden />
               <div className="p-8 pt-9">
@@ -45,11 +50,11 @@ const HowItWorks = () => {
                   {step.desc}
                 </p>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
-    </section>
+    </MotionSection>
   );
 };
 
